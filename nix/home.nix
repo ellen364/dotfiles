@@ -21,20 +21,23 @@
   # TODO: add `bat` or `most` as a better pager? (change pager settings too) think might get things like colored man pages
   home.packages = [
     pkgs.duf               # better df
+    pkgs.entr              # run arbitrary commands when file changes
     pkgs.fd                # better find
-    pkgs.htop
-    pkgs.httpie
-    pkgs.jq
-    pkgs.lunarvim
-    pkgs.meld
-    pkgs.nerdfonts
+    pkgs.htop              # better top
+    pkgs.httpie            # http client
+    pkgs.jq                # filter and transform json
+    pkgs.just              # command runner
+    pkgs.lunarvim          # neovim with ide config
+    pkgs.meld              # visual diff tool
+    pkgs.nerdfonts         # common dev fonts
     pkgs.nix-prefetch-git  # find sha for fetchFromGitHub
-    pkgs.thefuck
-    pkgs.tldr
-    pkgs.tmux
+    pkgs.ripgrep           # faster grep
+    pkgs.thefuck           # correct previous console command
+    pkgs.tldr              # man pages focusing on examples
+    pkgs.tmux              # terminal multiplexer
+    pkgs.zoxide            # better cd, remembers commonly used directories
     pkgs.zsh
     pkgs.zsh-powerlevel10k
-    pkgs.zsh-z
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -135,7 +138,7 @@
   programs.zsh = {
     enable = true;
     history = {
-      size = 10000;
+      size = 100000;
       ignoreDups = true;
       ignoreAllDups = false;
       share = false;
@@ -162,11 +165,6 @@
         name = "powerlevel10k";
         src = pkgs.zsh-powerlevel10k;
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "zsh-z";
-        src = pkgs.zsh-z;
-        file = "share/zsh-z/zsh-z.plugin.zsh";
       }
     ];
   };
