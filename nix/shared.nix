@@ -30,6 +30,7 @@
     pkgs.thefuck           # correct previous console command
     pkgs.tldr              # man pages focusing on examples
     pkgs.tmux              # terminal multiplexer
+    pkgs.tree              # indented directory listing
     pkgs.zoxide            # better cd, remembers commonly used directories
     pkgs.zsh
     pkgs.zsh-powerlevel10k
@@ -102,10 +103,10 @@
     enable = true;
     # better diff'ing
     delta.enable = true;
-    #delta.options = {
-    #  navigate = true;
-    #  light = false;
-    #};
+    delta.options = {
+      lineNumbers = true;
+      # sideBySide = true;
+    };
     extraConfig = {
       core = {
         editor = "lvim";
@@ -134,13 +135,19 @@
     enable = true;
     history = {
       size = 100000;
+      extended = true;               # save timestamps
       ignoreDups = true;
       ignoreAllDups = false;
-      share = false;
+      expireDuplicatesFirst = true;
+      share = true;                  # share between zsh sessions
     };
     syntaxHighlighting.enable = true;
     enableCompletion = true;
     enableAutosuggestions = true;
+    shellAliases = {
+      ll = "ls -lha";
+      ".." = "cd ..";
+    };
     initExtra = ''
     # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
     # Initialization code that may require console input (password prompts, [y/n]
