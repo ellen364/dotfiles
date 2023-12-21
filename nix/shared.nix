@@ -31,7 +31,6 @@
     pkgs.tldr              # man pages focusing on examples
     pkgs.tmux              # terminal multiplexer
     pkgs.tree              # indented directory listing
-    pkgs.zoxide            # better cd, remembers commonly used directories
     pkgs.zsh
     pkgs.zsh-powerlevel10k
 
@@ -128,6 +127,13 @@
         autoupdate = true;
       };
     };
+  };
+
+  # better cd, remembers commonly used directories
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.zoxide.enable
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   # https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh.nix
