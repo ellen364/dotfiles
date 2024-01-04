@@ -103,13 +103,28 @@ lvim.plugins = {
     config = function()
       require("neorg").setup {
         load = {
-          ["core.defaults"] = {},  -- Loads default behaviour
-          ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.dirman"] = {      -- Manages Neorg workspaces
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {  -- Adds pretty icons to your documents
+            config = {
+              icons = {
+                todo = {
+                  undone = {
+                    icon = " ",
+                  },
+                },
+              },
+            },
+          },
+          ["core.dirman"] = { -- Manages Neorg workspaces
             config = {
               workspaces = {
-                notes = "~/projects/notes",
+                notes = "~/Documents/notes",
               },
+            },
+          },
+          ["core.journal"] = {
+            config = {
+              strategy = "flat",
             },
           },
         },
