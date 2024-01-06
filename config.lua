@@ -7,6 +7,9 @@
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.relativenumber = true
+vim.opt.backspace = "indent,eol,start"  -- make backspace work properly
+vim.opt.clipboard:append("unnamedplus") -- use standard clipboard
+vim.opt.iskeyword:append("-")           -- treat - as part of words, e.g. str-str gets entirely deleted
 
 -- general
 lvim.log.level = "info"
@@ -22,13 +25,43 @@ lvim.format_on_save = {
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-
+-- lvim.keys.normal_mode["x"] = "_x"     -- when delete character using x, don't copy it into the register / clipboard
+lvim.keys.insert_mode["jk"] = "<ESC>" -- in insert mode, jk equivalent to Esc (returns to normal mode)
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 
 -- -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["W"] = { "<cmd>noautocmd w<cr>", "Save without formatting" }
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["+"] = { "<C-a>", "Increment number under cursor" }
+lvim.builtin.which_key.mappings["-"] = { "<C-x>", "Decrement number under cursor" }
+lvim.builtin.which_key.mappings["f"] = {
+  name = "Find",
+  b = { "<cmd>Telescope buffers previewer=false<cr>", "Find Buffer" },
+  c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+  f = { "<cmd>Telescope find_files<cr>", "Find File" },
+  h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+  H = { "<cmd>Telescope highlights<cr>", "Find highlight groups" },
+  M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+  r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+  R = { "<cmd>Telescope registers<cr>", "Registers" },
+  t = { "<cmd>Telescope live_grep<cr>", "Text" },
+  k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+  C = { "<cmd>Telescope commands<cr>", "Commands" },
+  l = { "<cmd>Telescope resume<cr>", "Resume last search" },
+  p = {
+    "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
+    "Colorscheme with Preview",
+  },
+}
+
+lvim.builtin.which_key.mappings["s"] = {
+  name = "Split window",
+  v = { "<C-w>v", "Vertical split" },
+  h = { "<C-w>s", "Horizontal split" },
+  x = { ":close<CR>", "Close current split" },
+  e = { "<C-w>=", "Make splits equal width & height" },
+}
 
 -- -- Change theme settings
 -- lvim.colorscheme = "lunar"
