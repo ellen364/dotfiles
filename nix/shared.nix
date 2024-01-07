@@ -31,6 +31,7 @@
     pkgs.tldr              # man pages focusing on examples
     pkgs.tmux              # terminal multiplexer
     pkgs.tree              # indented directory listing
+    pkgs.lazygit              # tui for git, can be used inside lunarvim
     pkgs.zsh
     pkgs.zsh-powerlevel10k
 

@@ -1,0 +1,3 @@
+# esc exits lazygit when at top level (especially useful when using lazygit in lunarvim)
+quitOnTopLevelReturn: true
+
