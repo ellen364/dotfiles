@@ -104,7 +104,7 @@
     # better diff'ing
     delta.enable = true;
     delta.options = {
-      lineNumbers = true;
+      line-numbers = true;
       # sideBySide = true;
     };
     extraConfig = {
