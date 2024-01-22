@@ -64,7 +64,7 @@ lvim.builtin.which_key.mappings["s"] = {
 }
 
 -- -- Change theme settings
--- lvim.colorscheme = "lunar"
+lvim.colorscheme = "onedark"
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -128,6 +128,8 @@ lvim.builtin.treesitter.auto_install = true
 
 -- -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 lvim.plugins = {
+  { "navarasu/onedark.nvim" },
+  { "olimorris/onedarkpro.nvim" },
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
